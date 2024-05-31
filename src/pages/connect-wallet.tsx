@@ -8,7 +8,7 @@ const ConnectWallet = () => {
     checkbox3: false,
   });
 
-  const handleCheckboxChange = (event) => {
+  const handleCheckboxChange = (event: { target: { name: any; checked: any; }; }) => {
     const { name, checked } = event.target;
     setCheckboxes((prevCheckboxes) => ({
       ...prevCheckboxes,
