@@ -3,11 +3,12 @@
 
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 import Link from 'next/link';
 import { useWallet } from '@/components/context/WalletContext';
 import { collections } from '@/components/collections/CollectionList';
+import { Image } from 'next/image';
 
 interface NFTItem {
   id: number;
@@ -89,7 +90,7 @@ const CollectionDetail = () => {
     {nftItems.map((item) => (
       <div key={item.id} className=" border shadow-xl rounded-2xl relative overflow-hidden p-4">
         <div className="relative">
-          <img src={item.imageUrl} alt={item.name} className="w-full h-auto object-cover rounded-2xl" />
+          <Image src={item.imageUrl} alt={item.name} className="w-full h-auto object-cover rounded-2xl" />
           <div className="absolute inset-0 flex items-center justify-center">
             <button
                onClick={handleBuyClick}
@@ -99,7 +100,7 @@ const CollectionDetail = () => {
               <span className="flex items-center ml-6">
                 Buy
               </span>
-              <img src="/assets/images/arrow-right.svg" className="ml-2" style={{ width: '14px', height: '14px' }} />
+              <Image src="/assets/images/arrow-right.svg" alt="Arrow Right" width={14} height={14} className="ml-2" />
             </button>
           </div>
         </div>

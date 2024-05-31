@@ -3,6 +3,7 @@
 
 import Link from 'next/link';
 import { useWallet } from '../context/WalletContext';
+import Image from 'next/image';
 
 
 const Header: React.FC = () => {
@@ -14,7 +15,7 @@ const Header: React.FC = () => {
         <div className="text-black text-2xl">Marketplace</div>
         {isConnected && accountDetails ? (
           <Link href="/account" className="flex items-center">
-            <img
+            <Image
               src={accountDetails.avatarUrl}
               alt="User Avatar"
               className="w-10 h-10 rounded-full mr-2"
