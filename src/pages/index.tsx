@@ -20,9 +20,7 @@ const Home = () => {
           <h2 className='text-xl font-bold text-gray-800 mb-0'>Collections</h2>
         </div>
         <CollectionList />
-        <Account isOpen={false} onClose={function (): void {
-          throw new Error('Function not implemented.');
-        } }/>
+        
       </main>
     </div>
   );
