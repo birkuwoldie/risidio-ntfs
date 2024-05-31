@@ -19,12 +19,12 @@ interface NFTItem {
 }
 
 const nftItems: NFTItem[] = [
-  { id: 1, name: 'Night Is Coming', imageUrl: 'https://source.unsplash.com/random?nft1', nftAmount: 3, description: 'Description of NFT Item 1' },
-  { id: 2, name: 'With The Star', imageUrl: 'https://source.unsplash.com/random?nft2', nftAmount: 5, description: 'Description of NFT Item 2' },
-  { id: 3, name: 'Summer', imageUrl: 'https://source.unsplash.com/random?nft3', nftAmount: 2, description: 'Description of NFT Item 3' },
-  { id: 4, name: 'Quiet', imageUrl: 'https://source.unsplash.com/random?nft4', nftAmount: 4, description: 'Description of NFT Item 4' },
-  { id: 5, name: 'Travel', imageUrl: 'https://source.unsplash.com/random?nft5', nftAmount: 6, description: 'Description of NFT Item 5' },
-  { id: 6, name: 'The Rain', imageUrl: 'https://source.unsplash.com/random?nft5', nftAmount: 6, description: 'Description of NFT Item 5' },
+  { id: 1, name: 'Night Is Coming', imageUrl: '/assets/images/dusk.jpeg', nftAmount: 3, description: 'Description of NFT Item 1' },
+  { id: 2, name: 'With The Star', imageUrl: '/assets/images/star.jpeg', nftAmount: 5, description: 'Description of NFT Item 2' },
+  { id: 3, name: 'Summer', imageUrl: '/assets/images/summer.jpeg', nftAmount: 2, description: 'Description of NFT Item 3' },
+  { id: 4, name: 'Quiet', imageUrl: '/assets/images/quite.jpeg', nftAmount: 4, description: 'Description of NFT Item 4' },
+  { id: 5, name: 'Travel', imageUrl: '/assets/images/travel.jpeg', nftAmount: 6, description: 'Description of NFT Item 5' },
+  { id: 6, name: 'The Rain', imageUrl: '/assets/images/rain.jpeg', nftAmount: 6, description: 'Description of NFT Item 5' },
 ];
 
 const CollectionDetail = () => {
