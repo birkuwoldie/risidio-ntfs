@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useWallet } from '@/components/context/WalletContext';
 import { collections } from '@/components/collections/CollectionList';
-import { Image } from 'next/image';
+import Image  from 'next/image';
 
 interface NFTItem {
   id: number;
@@ -61,7 +61,7 @@ const CollectionDetail = () => {
     <h1 className="text-4xl md:text-6xl font-bold mb-4">{item?.name}</h1>
     <p className="my-4 text-sm text-left md:text-2xl text-gray-500">{item?.description}</p>
     <div className="flex items-center mb-4">
-      <Image src={item?.userAvatar} alt="User Avatar" width={128} height={128} className="rounded-full w-32 h-32 object-cover mr-4" />
+      <Image src={item?.userAvatar||''} alt="User Avatar" width={128} height={128} className="rounded-full w-32 h-32 object-cover mr-4" />
       <div className="text-left">
         <p className="text-lg text-gray-500">Artist</p>
         <p className="text-xl font-semibold text-black-800">{item?.userName}</p>
@@ -79,7 +79,7 @@ const CollectionDetail = () => {
   </div>
   <div className="flex-shrink-0 mt-8 md:mt-0 ml-0 md:ml-8 md:mr-16 lg:mr-16">
     <div className="rounded-3xl shadow-md overflow-hidden">
-      <Image src={item?.imageUrl} alt="Banner Image" width={500} height={200} className="rounded-3xl object-contain" />
+      <Image src={item?.imageUrl || ''} alt="Banner Image" width={500} height={200} className="rounded-3xl object-contain" />
     </div>
   </div>
 </div>
@@ -101,6 +101,7 @@ const CollectionDetail = () => {
                 Buy
               </span>
               <Image src="/assets/images/arrow-right.svg" alt="Arrow Right" width={14} height={14} className="ml-2" />
+
             </button>
           </div>
         </div>
