@@ -30,6 +30,7 @@ const nftItems: NFTItem[] = [
 const CollectionDetail = () => {
   const router = useRouter();
   const { id } = router.query;
+  // const [isBuy, setIsBuy] = useState<boolean>(false);
 
   const [purchasedItems, setPurchasedItems] = useState<NFTItem[]>([]);
   const [bannerImageUrl, setBannerImageUrl] = useState<string>('/assets/images/light_night.jpg');
@@ -39,16 +40,17 @@ const CollectionDetail = () => {
   //   setPurchasedItems([...purchasedItems, item]);
   //   alert(`${item.name} added to your account!`);
   // };
-  const { isConnected } = useWallet();
+  const { isConnected, isBuy, setIsBuy } = useWallet();
   // const router = useRouter();
   const item = collections.find((collect) => collect.id === Number(id));
+
   const handleBuyClick = () => {
     if (!isConnected) {
       router.push('/connect-wallet');
-    } 
-    // else {
-    //   addToAccount(item);
-    // }
+    } else {
+      setIsBuy(true); // Set isBuy to true when the buy button is clicked
+      
+    }
   };
   return (
     <div className='mt-20  mx-4  '>
@@ -88,21 +90,25 @@ const CollectionDetail = () => {
   <h1 className="text-2xl font-bold my-8">NFTs</h1>
   <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-auto">
     {nftItems.map((item) => (
-      <div key={item.id} className=" border shadow-xl rounded-2xl relative overflow-hidden p-4">
+      <div key={item.id} className="border shadow-xl rounded-2xl relative overflow-hidden p-4">
         <div className="relative">
-          <Image src={item.imageUrl} alt={item.name} className="w-full h-auto object-cover rounded-2xl" />
+          <Image src={item.imageUrl} alt={item.name} width={500} height={300} className="w-full h-auto object-cover rounded-2xl" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <button
-               onClick={handleBuyClick}
-              className="bg-white text-black font-bold py-1 px-4 rounded-full flex items-center"
-              style={{ width: '120px' }} // Adjust width as needed
-            >
-              <span className="flex items-center ml-6">
-                Buy
-              </span>
-              <Image src="/assets/images/arrow-right.svg" alt="Arrow Right" width={14} height={14} className="ml-2" />
-
-            </button>
+            {isBuy ? (
+            <button onClick='' className="bg-white text-black font-bold py-1 px-4 rounded-full flex items-center" style={{ width: '120px' }}>
+                <span className="flex items-center ml-6">
+                  Buy
+                </span>
+                <Image src="/assets/images/arrow-right.svg" alt="Arrow Right" width={14} height={14} className="ml-2" />
+              </button>
+            ) : (
+              <button onClick={handleBuyClick} className="bg-white text-black font-bold py-1 px-4 rounded-full flex items-center" style={{ width: '120px' }}>
+                <span className="flex items-center ml-6">
+                  Buy
+                </span>
+                <Image src="/assets/images/arrow-right.svg" alt="Arrow Right" width={14} height={14} className="ml-2" />
+              </button>
+            )}
           </div>
         </div>
         <div className="flex justify-between items-center p-4">
@@ -115,6 +121,7 @@ const CollectionDetail = () => {
     ))}
   </div>
 </div>
+
 
     </div>
   );

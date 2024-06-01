@@ -1,4 +1,3 @@
-// WalletContext.tsx
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { useRouter } from 'next/router';
 
@@ -11,6 +10,8 @@ interface WalletContextType {
   isConnected: boolean;
   accountDetails: AccountDetails | null;
   connectWallet: (account: AccountDetails) => void;
+  isBuy: boolean; // Add isBuy to the context state
+  setIsBuy: (isBuy: boolean) => void; // Add setter for isBuy
 }
 
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
@@ -22,6 +23,7 @@ interface WalletProviderProps {
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [isConnected, setIsConnected] = useState<boolean>(false);
   const [accountDetails, setAccountDetails] = useState<AccountDetails | null>(null);
+  const [isBuy, setIsBuy] = useState<boolean>(false); // Initialize isBuy state
 
   const connectWallet = (account: AccountDetails) => {
     setIsConnected(true);
@@ -29,7 +31,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   };
 
   return (
-    <WalletContext.Provider value={{ isConnected, accountDetails, connectWallet }}>
+    <WalletContext.Provider value={{ isConnected, accountDetails, connectWallet, isBuy, setIsBuy }}>
       {children}
     </WalletContext.Provider>
   );

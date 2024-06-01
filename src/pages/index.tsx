@@ -4,7 +4,7 @@ import Head from 'next/head';
 // import Header from '../components/Header';
 // import ProductList from '../components/ProductList';
 import Hero from './../components/hero/Hero';
-import Account from './account';
+import Account from '../components/header/account';
 
 const Home = () => {
   return (

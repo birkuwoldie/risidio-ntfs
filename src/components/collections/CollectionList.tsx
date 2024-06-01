@@ -142,7 +142,7 @@ const CollectionList = () => {
       {collections.map((item) => (
         <div key={item.id} className="border shadow-lg p-4 rounded-2xl relative">
           <div className="relative">
-            <Image src={item.imageUrl} alt={item.name} className="w-full h-48 object-cover rounded-2xl" />
+            <Image src={item.imageUrl} alt={item.name} width={500} height={300} className="w-full h-48 object-cover rounded-2xl" />
             <div className="absolute inset-0 flex items-center justify-center">
               <Link href={`/collection/${item.id}`}>
                 <span className="bg-white text-black py-1 px-4 rounded-full block text-center cursor-pointer">
@@ -160,7 +160,7 @@ const CollectionList = () => {
           <p className="text-gray-500 text-sm">Price Range: {item.price}</p>
           <p className="text-[16px] text-[#23252B]">{trimDescription(item.description, 10)}</p>
           <div className="flex flex-row items-center mt-2">
-            <Image src={item.userAvatar} alt={item.userName} className="w-10 h-10 rounded-full mr-2" />
+            <Image src={item.userAvatar} alt={item.userName} width={10} height={10} className="w-10 h-10 rounded-full mr-2" />
             <div>
               <p className="text-gray-500">{item.job}</p>
               <p className="font-semibold">{item.userName}</p>
