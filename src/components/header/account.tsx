@@ -3,7 +3,7 @@ import React from 'react';
 import { ChevronRight, Circle } from 'react-feather'; 
 import { useWallet } from '../context/WalletContext';
 import Image  from 'next/image';
-
+import Link from 'next/link';
 interface AccountProps {
   onClose: () => void;
 }
@@ -35,7 +35,10 @@ const Account: React.FC<AccountProps> = ({ onClose }) => {
             <>
             <div className="flex flex-col item-center justify-center mt-20">
               <p className="ml-4 text-md text-center text-gray-500">You don’t own any NFTs yet.</p>
-              <button className="bg-black w-40 ml-16 text-white rounded-full px-4 py-2 mt-4">Start Shopping</button>
+              
+<Link href='/collection/1'>
+  <span className="bg-black w-40 ml-16 text-white rounded-full px-4 py-2 mt-4 inline-block">Start Shopping</span>
+</Link>
             </div>
             </>
           )}

@@ -95,12 +95,17 @@ const CollectionDetail = () => {
           <Image src={item.imageUrl} alt={item.name} width={500} height={300} className="w-full h-auto object-cover rounded-2xl" />
           <div className="absolute inset-0 flex items-center justify-center">
             {isBuy ? (
-            <button onClick='' className="bg-white text-black font-bold py-1 px-4 rounded-full flex items-center" style={{ width: '120px' }}>
-                <span className="flex items-center ml-6">
-                  Buy
-                </span>
-                <Image src="/assets/images/arrow-right.svg" alt="Arrow Right" width={14} height={14} className="ml-2" />
-              </button>
+            <button 
+            onClick={() => console.log('Button clicked')} 
+            className="bg-white text-black font-bold py-1 px-4 rounded-full flex items-center" 
+            style={{ width: '120px' }}
+          >
+            <span className="flex items-center ml-6">
+              Buy
+            </span>
+            <Image src="/assets/images/arrow-right.svg" alt="Arrow Right" width={14} height={14} className="ml-2" />
+          </button>
+          
             ) : (
               <button onClick={handleBuyClick} className="bg-white text-black font-bold py-1 px-4 rounded-full flex items-center" style={{ width: '120px' }}>
                 <span className="flex items-center ml-6">

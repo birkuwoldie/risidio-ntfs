@@ -9,7 +9,7 @@ interface AccountDetails {
 interface WalletContextType {
   isConnected: boolean;
   accountDetails: AccountDetails | null;
-  connectWallet: (account: AccountDetails) => void;
+  connectWallet: () => void;
   isBuy: boolean; // Add isBuy to the context state
   setIsBuy: (isBuy: boolean) => void; // Add setter for isBuy
 }
@@ -25,9 +25,9 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [accountDetails, setAccountDetails] = useState<AccountDetails | null>(null);
   const [isBuy, setIsBuy] = useState<boolean>(false); // Initialize isBuy state
 
-  const connectWallet = (account: AccountDetails) => {
+  const connectWallet = () => {
     setIsConnected(true);
-    setAccountDetails(account);
+    // setAccountDetails(account);
   };
 
   return (
